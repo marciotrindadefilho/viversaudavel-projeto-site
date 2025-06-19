@@ -1,3 +1,7 @@
+'use client';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // Importa o "redirecionador" de páginas
+import { createClient } from '@/lib/supabaseClient';
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -9,6 +13,29 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 
 export default function LoginPage() {
+  // ***** PREPARAÇÃO (igual ao cadastro) *****
+  const router = useRouter(); // Ativa o redirecionador
+  const supabase = createClient();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // ***** LÓGICA DE LOGIN *****
+  const handleSignIn = async (e: React.FormEvent) => {
+    e.preventDefault(); // Impede a página de recarregar
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      alert('Erro no login: ' + error.message);
+    } else {
+      alert('Login realizado com sucesso! Redirecionando...');
+      router.push('/'); // Redireciona o usuário para a página inicial
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -36,19 +63,23 @@ export default function LoginPage() {
               </CardHeader>
 
               <CardContent className="space-y-6">
-                <form className="space-y-4">
+                {/* ***** CONEXÃO 1: Ligar o formulário à nossa função handleSignIn ***** */}
+                <form onSubmit={handleSignIn} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-gray-700 font-medium">
                       E-mail
                     </Label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                      {/* ***** CONEXÃO 2: Ligar este campo à "caixa de memória" do e-mail ***** */}
                       <Input
                         id="email"
                         type="email"
                         placeholder="seu@email.com"
                         className="pl-10 h-12 border-2 focus:border-green-500"
                         required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
                   </div>
@@ -59,55 +90,4 @@ export default function LoginPage() {
                     </Label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                      <Input
-                        id="password"
-                        type="password"
-                        placeholder="••••••••"
-                        className="pl-10 pr-10 h-12 border-2 focus:border-green-500"
-                        required
-                      />
-                      <button
-                        type="button"
-                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                      >
-                        <Eye className="w-5 h-5" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="rounded border-gray-300" />
-                      <span className="text-sm text-gray-600">Lembrar-me</span>
-                    </label>
-                    <Link href="/recuperar-senha" className="text-sm text-green-600 hover:text-green-700">
-                      Esqueceu a senha?
-                    </Link>
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full h-12 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    Entrar
-                  </Button>
-                </form>
-
-                <div className="text-center">
-                  <p className="text-gray-600">
-                    Não tem uma conta?{" "}
-                    <Link href="/registro" className="text-green-600 hover:text-green-700 font-semibold">
-                      Cadastre-se aqui
-                    </Link>
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  )
-}
+                      {/* ***** CONEXÃO 3: Ligar
