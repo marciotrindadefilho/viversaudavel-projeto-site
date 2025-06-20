@@ -25,7 +25,7 @@ export default function Header() {
     },
     {
       title: "Mais",
-      submenu: ["Nossa Missão", "Blog", "Depoimentos"],
+      submenu: ["Sobre Nós", "Blog", "Depoimentos"],
     },
   ]
 

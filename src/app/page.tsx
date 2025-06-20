@@ -1,6 +1,6 @@
 import Header from "@/components/header"
 import Hero from "@/components/hero"
-import Mission from "@/components/aboutus"
+import Mission from "@/components/mission"
 import Values from "@/components/values"
 import Ebooks from "@/components/ebooks"
 import Blog from "@/components/blog"
