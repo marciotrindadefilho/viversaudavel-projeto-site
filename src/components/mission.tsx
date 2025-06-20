@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function mission() {
+export default function Mission() {
   return (
     <section className="relative py-20">
       {/* Background Image */}
@@ -17,9 +17,9 @@ export default function mission() {
               <Image
                 src="/geo.png"
                 alt="Georgia Espinola Moura - Fundadora"
-                width={300}
-                height={400}
-                className="rounded-lg shadow-lg object-cover"
+                width={400}
+                height={500}
+                className="rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -27,14 +27,12 @@ export default function mission() {
           {/* Content */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Sobre Nós</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">Nossa Missão</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Promover a saúde, autonomia e qualidade de vida de pessoas com mais de 50 anos, por meio da produção e
                 divulgação de conteúdos científicos, acessíveis e atualizados em fisioterapia em geral e geriátrica. A
                 Viver Saudável tem como objetivo primário capacitar cuidadores, profissionais da saúde e o próprio idoso
-                com conhecimento prático baseado em evidências. Como objetivo secundário, visa ampliar o alcance da
-                educação em saúde, incentivando a prevenção e o autocuidado em todas as fases da vida, principalmente do
-                envelhecimento.
+                com conhecimento prático baseado em evidências.
               </p>
             </div>
 
@@ -44,16 +42,8 @@ export default function mission() {
               <p className="text-gray-600 leading-relaxed">
                 Com mais de 14 anos de experiência na área da saúde, especialista em Fisioterapia Cardiorrespiratória
                 pelo Instituto do Coração-INCOR/HCFMUSP com experiência em reabilitação funcional e promoção do
-                bem-estar. Sua carreira profissional teve início em São Paulo, atuando em instituições de referência
-                nacional como o Hospital Beneficência Portuguesa e o Instituto do Câncer do Estado de São Paulo
-                (ICESP/USP), onde desenvolveu uma sólida base clínica em cuidados de alta complexidade e humanização da
-                assistência.
-              </p>
-              <p className="text-gray-600 leading-relaxed mt-4">
-                Desde 2011, Geórgia atua em João Pessoa – PB, em âmbito hospitalar e também com foco em fisioterapia
-                domiciliar e reabilitação integrativa, especialmente voltada à população adulta e idosa. Em 2021, fundou
-                a Viver Saudável, uma iniciativa voltada à democratização do conhecimento em saúde por meio de conteúdos
-                digitais baseados em evidências científicas.
+                bem-estar. Desde 2011, Georgia atua em João Pessoa – PB, em âmbito hospitalar e também com foco em
+                fisioterapia domiciliar e reabilitação integrativa, especialmente voltada à população adulta e idosa.
               </p>
             </div>
           </div>
