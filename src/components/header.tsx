@@ -16,10 +16,9 @@ type UserProfile = {
   email?: string;
 }
 
-// ***** MUDANÇA 1: A estrutura do submenu agora é mais inteligente *****
 type SubMenuItem = {
   title: string;
-  href: string; // Cada subitem agora tem seu próprio link
+  href: string;
 }
 
 type MenuItem = {
@@ -53,7 +52,7 @@ export default function Header() {
     router.push('/');
   };
 
-  // ***** MUDANÇA 2: O link "Sobre Nós" agora aponta para /nossa-missao *****
+  // ***** AQUI ESTÁ A CORREÇÃO DOS ENDEREÇOS *****
   const menuItems: MenuItem[] = [
     {
       title: "Audiobooks",
@@ -80,9 +79,9 @@ export default function Header() {
     {
       title: "Mais",
       submenu: [
-        { title: "Sobre Nós", href: "/nossa-missao" }, // <-- AQUI ESTÁ A MÁGICA
-        { title: "Blog", href: "/blog" },
-        { title: "Depoimentos", href: "/depoimentos" },
+        { title: "Sobre Nós", href: "/mais/sobre-nos" }, 
+        { title: "Blog", href: "/mais/blog" },
+        { title: "Depoimentos", href: "/mais/depoimentos" },
       ],
     },
   ];
