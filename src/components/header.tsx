@@ -52,7 +52,6 @@ export default function Header() {
     router.push('/');
   };
 
-  // ***** AQUI ESTÁ A CORREÇÃO DOS ENDEREÇOS *****
   const menuItems: MenuItem[] = [
     {
       title: "Audiobooks",
@@ -79,7 +78,7 @@ export default function Header() {
     {
       title: "Mais",
       submenu: [
-        { title: "Sobre Nós", href: "/mais/sobre-nos" }, 
+        { title: "Sobre Nós", href: "/mais/sobre-nos" },
         { title: "Blog", href: "/mais/blog" },
         { title: "Depoimentos", href: "/mais/depoimentos" },
       ],
@@ -113,7 +112,6 @@ export default function Header() {
                   </button>
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="py-2">
-                      {/* ***** MUDANÇA 3: O link agora usa o subitem.href ***** */}
                       {item.submenu.map((subitem) => (
                         <Link key={subitem.title} href={subitem.href} className="block px-4 py-2 text-sm text-gray-600 hover:text-green-600 hover:bg-gray-50">
                           {subitem.title}
@@ -131,8 +129,10 @@ export default function Header() {
             </div>
 
             <nav className="flex items-center space-x-4">
-              <Link href="/contato" className="text-gray-700 hover:text-green-600">Contato</Link>
+              {/* ***** MUDANÇA 1 (DESKTOP) ***** */}
+              <Link href="/#contato" className="text-gray-700 hover:text-green-600">Contato</Link>
               <Link href="/carrinho" className="text-gray-700 hover:text-green-600"><ShoppingCart className="w-5 h-5" /></Link>
+              
               {user ? (
                 <>
                   <span className="text-sm text-gray-600">Olá, {user.email?.split('@')[0]}</span>
@@ -154,15 +154,14 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="w-80">
                 <div className="flex flex-col space-y-4 mt-8">
-                  {/* ... Código da busca mobile ... */}
-                   {menuItems.map((item) => (
+                  {/* ... Código da busca mobile aqui ... */}
+                  {menuItems.map((item) => (
                       <Collapsible key={item.title}>
                         <CollapsibleTrigger className="flex items-center justify-between w-full p-2 text-left hover:bg-gray-100 rounded">
                            <span>{item.title}</span>
                            <ChevronDown className="w-4 h-4" />
                         </CollapsibleTrigger>
                         <CollapsibleContent className="pl-4 space-y-2">
-                           {/* ***** MUDANÇA 3 (Repetida aqui): O link agora usa o subitem.href ***** */}
                           {item.submenu.map((subitem) => (
                             <Link key={subitem.title} href={subitem.href} onClick={() => setIsOpen(false)} className="block p-2 text-sm text-gray-600 hover:text-green-600">
                               {subitem.title}
@@ -172,7 +171,8 @@ export default function Header() {
                       </Collapsible>
                    ))}
                   <hr/>
-                  <Link href="/contato" className="p-2 hover:bg-gray-100 rounded" onClick={() => setIsOpen(false)}>Contato</Link>
+                  {/* ***** MUDANÇA 2 (MOBILE) ***** */}
+                  <Link href="/#contato" className="p-2 hover:bg-gray-100 rounded" onClick={() => setIsOpen(false)}>Contato</Link>
                   <Link href="/carrinho" className="p-2 hover:bg-gray-100 rounded flex items-center" onClick={() => setIsOpen(false)}><ShoppingCart className="w-4 h-4 mr-2" />Carrinho</Link>
                   
                   {user ? (
