@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function AboutUs() {
+export default function mission() {
   return (
     <section className="relative py-20">
       {/* Background Image */}
