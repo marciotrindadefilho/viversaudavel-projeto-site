@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function Mission() {
+export default function AboutUs() {
   return (
     <section className="relative py-20">
       {/* Background Image */}
@@ -27,7 +27,7 @@ export default function Mission() {
           {/* Content */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Nossa Missão</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">Sobre Nós</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Promover a saúde, autonomia e qualidade de vida de pessoas com mais de 50 anos, por meio da produção e
                 divulgação de conteúdos científicos, acessíveis e atualizados em fisioterapia em geral e geriátrica. A
