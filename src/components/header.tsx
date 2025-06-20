@@ -57,24 +57,21 @@ export default function Header() {
       title: "Audiobooks",
       icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/icon1.jpg-ItxSUhwPpg6GzQ4l2WWqfJCGPCuA2u.jpeg",
       submenu: [
-        { title: "Biblioteca", href: "/audiobooks/biblioteca" },
-        { title: "Exercícios", href: "/audiobooks/exercicios" },
-        // ...outros subitens
+        { title: "Biblioteca", href: "/audiobooks" }, // Ajustado para a página principal
+        // Adicione outros links se as páginas existirem
       ],
     },
     {
       title: "E-books",
       icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/icon.jpg-PAJokvIU3PAz85esWhlzvtodO71OPa.jpeg",
       submenu: [
-        { title: "Biblioteca", href: "/e-books/biblioteca" },
-        { title: "Exercícios", href: "/e-books/exercicios" },
-        // ...outros subitens
+        { title: "Biblioteca", href: "/e-books" }, // Ajustado para a página principal
+        // Adicione outros links se as páginas existirem
       ],
     },
     {
       title: "Mais",
       submenu: [
-        // ***** AQUI ESTÁ A GARANTIA DA CORREÇÃO *****
         { title: "Sobre Nós", href: "/mais/sobre-nos" }, 
         { title: "Blog", href: "/mais/blog" },
         { title: "Depoimentos", href: "/mais/depoimentos" },
@@ -86,7 +83,6 @@ export default function Header() {
     <header className="bg-white shadow-md relative z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-4enRHQ10Jk5irL23feZ2HwgutqEozx.png"
@@ -97,7 +93,6 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
             <nav className="flex items-center space-x-6">
               {menuItems.map((item) => (
@@ -143,7 +138,6 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon"><Menu className="h-6 w-6" /></Button>
