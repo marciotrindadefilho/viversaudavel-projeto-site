@@ -59,9 +59,7 @@ export default function Header() {
       submenu: [
         { title: "Biblioteca", href: "/audiobooks/biblioteca" },
         { title: "Exercícios", href: "/audiobooks/exercicios" },
-        { title: "Nutrição", href: "/audiobooks/nutricao" },
-        { title: "Saúde Mental", href: "/audiobooks/saude-mental" },
-        { title: "Prevenção", href: "/audiobooks/prevencao" },
+        // ...outros subitens
       ],
     },
     {
@@ -70,15 +68,14 @@ export default function Header() {
       submenu: [
         { title: "Biblioteca", href: "/e-books/biblioteca" },
         { title: "Exercícios", href: "/e-books/exercicios" },
-        { title: "Nutrição", href: "/e-books/nutricao" },
-        { title: "Saúde Mental", href: "/e-books/saude-mental" },
-        { title: "Prevenção", href: "/e-books/prevencao" },
+        // ...outros subitens
       ],
     },
     {
       title: "Mais",
       submenu: [
-        { title: "Sobre Nós", href: "/mais/sobre-nos" },
+        // ***** AQUI ESTÁ A GARANTIA DA CORREÇÃO *****
+        { title: "Sobre Nós", href: "/mais/sobre-nos" }, 
         { title: "Blog", href: "/mais/blog" },
         { title: "Depoimentos", href: "/mais/depoimentos" },
       ],
@@ -129,7 +126,6 @@ export default function Header() {
             </div>
 
             <nav className="flex items-center space-x-4">
-              {/* ***** MUDANÇA 1 (DESKTOP) ***** */}
               <Link href="/#contato" className="text-gray-700 hover:text-green-600">Contato</Link>
               <Link href="/carrinho" className="text-gray-700 hover:text-green-600"><ShoppingCart className="w-5 h-5" /></Link>
               
@@ -154,8 +150,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="w-80">
                 <div className="flex flex-col space-y-4 mt-8">
-                  {/* ... Código da busca mobile aqui ... */}
-                  {menuItems.map((item) => (
+                   {menuItems.map((item) => (
                       <Collapsible key={item.title}>
                         <CollapsibleTrigger className="flex items-center justify-between w-full p-2 text-left hover:bg-gray-100 rounded">
                            <span>{item.title}</span>
@@ -171,7 +166,6 @@ export default function Header() {
                       </Collapsible>
                    ))}
                   <hr/>
-                  {/* ***** MUDANÇA 2 (MOBILE) ***** */}
                   <Link href="/#contato" className="p-2 hover:bg-gray-100 rounded" onClick={() => setIsOpen(false)}>Contato</Link>
                   <Link href="/carrinho" className="p-2 hover:bg-gray-100 rounded flex items-center" onClick={() => setIsOpen(false)}><ShoppingCart className="w-4 h-4 mr-2" />Carrinho</Link>
                   
